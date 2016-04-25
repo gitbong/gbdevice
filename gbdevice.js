@@ -38,7 +38,6 @@ var gb = gb || {};
 
 	function _deviceInfo(type, vertion) {
 
-
 		if (vertion == 'iphone' || vertion == 'ipad')
 			vertion += _appleHandle(_screenW, _screenH, _devicePixelRatio);
 
@@ -68,6 +67,8 @@ var gb = gb || {};
 		ua = navigator.userAgent.toLowerCase();
 		app = navigator.appVersion.toLowerCase();
 
+		console.log(ua)
+
 		_screenW = window.screen.width;
 		_screenH = window.screen.height;
 		_devicePixelRatio = window.devicePixelRatio;
@@ -94,6 +95,7 @@ var gb = gb || {};
 		(b = ua.match(/baidubrowser\/([\d.]+)/)) ? _browserInfo('baidubrowser', b[1]) : 0;
 		(b = ua.match(/chrome\/([\d.]+)/)) ? _browserInfo('chrome', b[1]) : 0;
 		(b = ua.match(/version\/([\d.]+).*safari/)) ? _browserInfo('safari', b[1]) : 0;
+		(b = ua.match(/edge\/([\d.]+)/)) ? _browserInfo('ie edge', b[1]) : 0;
 
 		var s;
 		(s = ua.match(/windows nt ([\d.]+)/)) ? _sysInfo('windows', s[1]) : 0;
